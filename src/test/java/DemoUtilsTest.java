@@ -66,7 +66,13 @@ public class DemoUtilsTest {
                 "Expected list should be same as actual list");
     }
 
-
+    @DisplayName("Lines match")
+    @Test
+    void testLinesMatch() {
+        List<String> theList = List.of("luv", "2", "code");
+        assertLinesMatch(theList, demoUtils.getAcademyInList(),
+                "Lines should match.");
+    }
 
     /*@AfterEach
     void tearDownAfterEach() {
