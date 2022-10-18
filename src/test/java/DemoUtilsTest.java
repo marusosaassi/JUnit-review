@@ -1,5 +1,7 @@
 import org.junit.jupiter.api.*;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class DemoUtilsTest {
@@ -45,6 +47,15 @@ public class DemoUtilsTest {
 
         assertTrue(demoUtils.isGreater(gradeOne,gradeTwo));
         assertFalse(demoUtils.isGreater(gradeTwo,gradeOne));
+    }
+
+    @DisplayName("Array equals")
+    @Test
+    void testArrayEquals() {
+        String[] stringArray = {"A", "B", "C"};
+
+        assertArrayEquals(stringArray, demoUtils.getFirstThreeLettersOfAlphabet(),
+                "Arrays should be the same");
     }
 
 
