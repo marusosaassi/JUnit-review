@@ -74,6 +74,19 @@ public class DemoUtilsTest {
                 "Lines should match.");
     }
 
+    @DisplayName("Throw and does not throw")
+    @Test
+    void testThrowsAndDoesNotThrow() {
+        assertThrows(Exception.class, () -> {
+            demoUtils.throwException(-1);
+            }, "Should throw an exception"
+        );
+
+        assertDoesNotThrow(() -> {
+            demoUtils.throwException(1);
+        }, "Should not throw exception");
+    }
+
     /*@AfterEach
     void tearDownAfterEach() {
         System.out.println("Running @AfterEach");
