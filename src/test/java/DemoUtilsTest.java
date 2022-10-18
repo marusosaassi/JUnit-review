@@ -1,7 +1,5 @@
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class DemoUtilsTest {
@@ -22,6 +20,13 @@ public class DemoUtilsTest {
     @BeforeAll
     static void setUpBeforeEachClass() {
         System.out.println("@BeforeAll executes only once before all test methods");
+        // by default, methods must be static
+    }
+
+    @AfterAll
+    static void tearDownAfterAll() {
+        System.out.println("@AfterAll executes only once after all test methods");
+        // by default, methods must be static
     }
 
     @Test
