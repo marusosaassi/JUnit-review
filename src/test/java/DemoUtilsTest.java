@@ -58,6 +58,14 @@ public class DemoUtilsTest {
                 "Arrays should be the same");
     }
 
+    @DisplayName("Iterable equeals")
+    @Test
+    void testIterableEquals() {
+        List<String> theList = List.of("luv", "2", "code");
+        assertIterableEquals(theList, demoUtils.getAcademyInList(),
+                "Expected list should be same as actual list");
+    }
+
 
 
     /*@AfterEach
