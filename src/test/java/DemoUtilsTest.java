@@ -1,13 +1,35 @@
-//import org.junit.jupiter.api.Assertions.*;
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class DemoUtilsTest {
+    DemoUtils demoUtils;
+
+    @BeforeEach
+    void setUpBeforeEach() {
+        this.demoUtils = new DemoUtils();
+        System.out.println("Before each executes before the execution of each test method");
+    }
+
+    @AfterEach
+    void tearDownAfterEach() {
+        System.out.println("Running @AfterEach");
+        System.out.println();
+    }
+
+    @BeforeAll
+    static void setUpBeforeEachClass() {
+        System.out.println("@BeforeAll executes only once before all test methods");
+    }
 
     @Test
     void testEqualsAndNotEquals() {
+        System.out.println("Running test: testEqualsAndNotEquals");
+
         //set up => create instance of the class to test
-        DemoUtils demoUtils = new DemoUtils();
+        //DemoUtils demoUtils = new DemoUtils();
 
         /*int expected = 6;
         int unexpected = 8;
@@ -28,7 +50,8 @@ public class DemoUtilsTest {
 
     @Test
     void testNullAndNotNull() {
-        DemoUtils demoUtils = new DemoUtils();
+        System.out.println("Running test: testNullAndNotNull");
+        //DemoUtils demoUtils = new DemoUtils();
 
         String str1 = null;
         String str2 = "marusosa";
