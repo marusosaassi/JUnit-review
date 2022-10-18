@@ -37,6 +37,16 @@ public class DemoUtilsTest {
                 "Objects should not refer to same object");
     }
 
+    @DisplayName("True and false test")
+    @Test
+    void testTrueFalse() {
+        int gradeOne = 10;
+        int gradeTwo = 5;
+
+        assertTrue(demoUtils.isGreater(gradeOne,gradeTwo));
+        assertFalse(demoUtils.isGreater(gradeTwo,gradeOne));
+    }
+
 
 
     /*@AfterEach
