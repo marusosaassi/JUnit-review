@@ -11,28 +11,9 @@ public class DemoUtilsTest {
         System.out.println("Before each executes before the execution of each test method");
     }
 
-    @AfterEach
-    void tearDownAfterEach() {
-        System.out.println("Running @AfterEach");
-        System.out.println();
-    }
-
-    @BeforeAll
-    static void setUpBeforeEachClass() {
-        System.out.println("@BeforeAll executes only once before all test methods");
-        // by default, methods must be static
-    }
-
-    @AfterAll
-    static void tearDownAfterAll() {
-        System.out.println("@AfterAll executes only once after all test methods");
-        // by default, methods must be static
-    }
-
     @Test
+    @DisplayName("Equals and not equals")
     void testEqualsAndNotEquals() {
-        System.out.println("Running test: testEqualsAndNotEquals");
-
         //set up => create instance of the class to test
         //DemoUtils demoUtils = new DemoUtils();
 
@@ -54,8 +35,8 @@ public class DemoUtilsTest {
     }
 
     @Test
+    @DisplayName("Null and not null")
     void testNullAndNotNull() {
-        System.out.println("Running test: testNullAndNotNull");
         //DemoUtils demoUtils = new DemoUtils();
 
         String str1 = null;
@@ -64,4 +45,22 @@ public class DemoUtilsTest {
         assertNull(demoUtils.checkNull(str1), "Object should be null");
         assertNotNull(demoUtils.checkNull(str2), "Object should not be null");
     }
+
+    /*@AfterEach
+    void tearDownAfterEach() {
+        System.out.println("Running @AfterEach");
+        System.out.println();
+    }
+
+    @BeforeAll
+    static void setUpBeforeEachClass() {
+        System.out.println("@BeforeAll executes only once before all test methods");
+        // by default, methods must be static
+    }
+
+    @AfterAll
+    static void tearDownAfterAll() {
+        System.out.println("@AfterAll executes only once after all test methods");
+        // by default, methods must be static
+    }*/
 }
