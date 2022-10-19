@@ -1,9 +1,14 @@
 import org.junit.jupiter.api.*;
 
+import java.time.Duration;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+//@TestMethodOrder(MethodOrderer.MethodName.class)
+//@TestMethodOrder(MethodOrderer.DisplayName.class)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+//@TestMethodOrder(MethodOrderer.Random.class)
 public class DemoUtilsTest {
     DemoUtils demoUtils;
 
@@ -14,6 +19,7 @@ public class DemoUtilsTest {
 
     @Test
     @DisplayName("Equals and not equals")
+    @Order(1) //we can also use negative values
     void testEqualsAndNotEquals() {
         assertEquals(6, demoUtils.add(2,4), "2+4 must be 6");
         assertNotEquals(8, demoUtils.add(2,4), "2+4 must not be 8");
@@ -21,6 +27,7 @@ public class DemoUtilsTest {
 
     @Test
     @DisplayName("Null and not null")
+    @Order(0)
     void testNullAndNotNull() {
         String str1 = null;
         String str2 = "marusosa";
@@ -41,6 +48,7 @@ public class DemoUtilsTest {
 
     @DisplayName("True and false test")
     @Test
+    @Order(30)
     void testTrueFalse() {
         int gradeOne = 10;
         int gradeTwo = 5;
@@ -68,6 +76,7 @@ public class DemoUtilsTest {
 
     @DisplayName("Lines match")
     @Test
+    @Order(50)
     void testLinesMatch() {
         List<String> theList = List.of("luv", "2", "code");
         assertLinesMatch(theList, demoUtils.getAcademyInList(),
@@ -85,6 +94,14 @@ public class DemoUtilsTest {
         assertDoesNotThrow(() -> {
             demoUtils.throwException(1);
         }, "Should not throw exception");
+    }
+
+    @DisplayName("Timeout")
+    @Test
+    void testTimeOut() {
+        assertTimeoutPreemptively(Duration.ofSeconds(3), () -> {
+            demoUtils.checkTimeout();
+        }, "method should execute in 3 seconds (or less)");
     }
 
     /*@AfterEach
