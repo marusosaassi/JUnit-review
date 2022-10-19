@@ -32,4 +32,28 @@ public class ConditionalTest {
     void testForMacAndWindowsOnly() {
         //
     }
+
+    @Test
+    @EnabledOnJre(JRE.JAVA_17)
+    void testOnlyForJava17() {
+        //
+    }
+
+    @Test
+    @EnabledOnJre(JRE.JAVA_13)
+    void testOnlyForJava13() {
+        //
+    }
+
+    @Test
+    @EnabledForJreRange(min=JRE.JAVA_13, max=JRE.JAVA_18)
+    void testOnlyForJavaRange() {
+        //
+    }
+
+    @Test
+    @EnabledForJreRange(min=JRE.JAVA_11)
+    void testOnlyForJavaRangeMin() {
+        //
+    }
 }
