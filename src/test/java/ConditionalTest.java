@@ -56,4 +56,16 @@ public class ConditionalTest {
     void testOnlyForJavaRangeMin() {
         //
     }
+
+    @Test
+    @EnabledIfEnvironmentVariable(named="LUV2CODE_ENV", matches="DEV")
+    void testOnlyForDevEnvironment(){
+        //
+    }
+
+    @Test
+    @EnabledIfSystemProperty(named="LUV2CODE_SYS_PROP", matches="CI_CD_DEPLOY")
+    void testOnlyForSystemProperty(){
+        //
+    }
 }
