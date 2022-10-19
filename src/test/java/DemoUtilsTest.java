@@ -104,6 +104,12 @@ public class DemoUtilsTest {
         }, "method should execute in 3 seconds (or less)");
     }
 
+    @DisplayName("Multiply")
+    @Test
+    void testMultiply(){
+        assertEquals(12, demoUtils.multiply(4,3), "4+3 must be 12");
+    }
+
     /*@AfterEach
     void tearDownAfterEach() {
         System.out.println("Running @AfterEach");
