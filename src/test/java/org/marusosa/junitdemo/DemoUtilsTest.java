@@ -1,4 +1,7 @@
+package org.marusosa.junitdemo;
+
 import org.junit.jupiter.api.*;
+import org.marusosa.junitdemo.DemoUtils;
 
 import java.time.Duration;
 import java.util.List;

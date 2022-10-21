@@ -1,3 +1,5 @@
+package org.marusosa.junitdemo;
+
 import java.util.List;
 
 public class DemoUtils {
